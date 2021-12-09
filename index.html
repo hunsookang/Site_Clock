@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hyunsoo's Clock</title>
+  <!--CSS-->
+  <link rel="stylesheet" href="./style.css">
+  <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="foreground">
+    <div id="clock"></div>
+        <div id="grad"></div>
+
+  <div class="allclouds">
+    <div class="clouds1">
+    	<div class="cloudscircle1d"></div> 
+    	<div class="cloudscircle2d"></div>
+    	<div class="cloudscircle3d"></div>
+    </div> 
+
+    <div class="clouds2">
+    	<div class="cloudscircle1"></div> 
+    	<div class="cloudscircle2"></div>
+    	<div class="cloudscircle3"></div>
+    </div> 
+
+    <div class="clouds3">
+    	<div class="cloudscircle1d"></div> 
+    	<div class="cloudscircle2d"></div>
+    	<div class="cloudscircle3d"></div>	
+    </div> 
+
+    <div class="clouds4">
+    	<div class="cloudscircle1"></div> 
+    	<div class="cloudscircle2"></div>
+    	<div class="cloudscircle3"></div>			
+    </div> 
+  </div>
+  </div>
+
+<!--Suncalc-->
+<script src="http://suncalc.net/scripts/suncalc.js"></script>
+<!--jQuery-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<!--Moment-->
+<script src='https://momentjs.com/downloads/moment.min.js'></script>
+<!--Custom script-->
+<script  src="./script.js"></script>
+
+<!--JavaScript-->
+<script>
+function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+    
+    if(h == 0){
+        h = 12;
+    }
+    
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("clock").innerText = time;
+    document.getElementById("clock").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    
+}
+
+showTime();
+
+</script>
+
+</body>
+</html>
+
+ 
